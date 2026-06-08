@@ -1,9 +1,20 @@
-import Nav from "@/components/nav";
+"use client"
 import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
+import { useEffect } from "react";
+import { getGTM } from "@/lib/gtm";
 
 export default function HomePage() {
+   useEffect(() => {
+    getGTM().then((gtm) => {
+      gtm.dataLayer({
+        dataLayer: {
+          event: "demo-event",
+        },
+      });
+    });
+  }, []);
   return (
     <main className="min-h-screen bg-gray-100">
       {/* Hero Section */}
