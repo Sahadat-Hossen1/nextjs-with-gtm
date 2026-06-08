@@ -3,17 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
 import { useEffect } from "react";
-import { getGTM } from "@/lib/gtm";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function HomePage() {
    useEffect(() => {
-    getGTM().then((gtm) => {
-      gtm.dataLayer({
-        dataLayer: {
-          event: "demo-event",
-        },
-      });
-    });
+    sendGAEvent("event", "demo-event", { value: "demo" });
   }, []);
   return (
     <main className="min-h-screen bg-gray-100">
