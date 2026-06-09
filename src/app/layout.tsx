@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
-import { GoogleTagManager } from "@next/third-parties/google";
-// import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +13,9 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -29,17 +31,14 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    ><head>
-      
-    </head>
+    >
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
+      <head />
       <body className="min-h-full flex flex-col">
-         <GoogleTagManager gtmId="GTM-ND2G96NZ" />
         <Nav />
         <main>{children}</main>
       </body>
-      {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/> */}
-      {/* <GoogleAnalytics gaId="G-V6FMNZT33B" /> */}
-      {/* <GoogleAnalytics gaId="GTM-ND2G96NZ" /> */}
+      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
     </html>
   );
 }
