@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
+// import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,12 +33,13 @@ export default function RootLayout({
       
     </head>
       <body className="min-h-full flex flex-col">
+         <GoogleTagManager gtmId="GTM-ND2G96NZ" />
         <Nav />
         <main>{children}</main>
       </body>
       {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/> */}
       {/* <GoogleAnalytics gaId="G-V6FMNZT33B" /> */}
-      <GoogleAnalytics gaId="GTM-ND2G96NZ" />
+      {/* <GoogleAnalytics gaId="GTM-ND2G96NZ" /> */}
     </html>
   );
 }
