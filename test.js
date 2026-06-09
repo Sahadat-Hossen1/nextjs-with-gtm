@@ -1,2 +1,2 @@
-const m = require('react-gtm-module');
-console.log(m);
+// const m = require('react-gtm-module');
+// console.log(m);
