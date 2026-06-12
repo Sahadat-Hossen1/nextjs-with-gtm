@@ -1,16 +1,18 @@
-"use client"
 import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
-import { useEffect } from "react";
-import { sendGAEvent } from "@next/third-parties/google";
+import { HomeTracker } from "./HomeTracker";
+import { AddToCartButton } from "@/components/AddToCartButton";
+
+export const metadata = {
+  title: "Home | Fashion Store",
+  description: "Discover the latest fashion trends on our home page.",
+};
 
 export default function HomePage() {
-   useEffect(() => {
-    sendGAEvent("event", "demo-event", { value: "demo" });
-  }, []);
   return (
     <main className="min-h-screen bg-gray-100">
+      <HomeTracker />
       {/* Hero Section */}
       <section className="bg-black text-white py-20 text-center">
         <h1 className="text-5xl font-bold">Fashion Store</h1>
@@ -49,10 +51,10 @@ export default function HomePage() {
                 <p className="text-gray-600 mt-2 flex-grow">
                   ৳{product.price}
                 </p>
-
-                <button className="mt-4 bg-black text-white px-4 py-2 rounded hover:opacity-90 w-full">
-                  Add to Cart
-                </button>
+                <AddToCartButton
+                  product={product}
+                  className="mt-4 bg-black text-white px-4 py-2 rounded hover:opacity-90 w-full"
+                />
               </div>
             </div>
           ))}

@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Nav from "@/components/nav";
 import { getProductById } from "@/data/products";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { AddToCartButton } from "@/components/AddToCartButton";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const product = getProductById(id);
+
+  return {
+    title: product ? `${product.name} | Fashion Store` : "Product | Fashion Store",
+    description: product?.description ?? "View the details of this product.",
+  };
+}
 
 export default async function ProductPage({
   params,
@@ -49,9 +61,10 @@ export default async function ProductPage({
               </p>
             )}
             <div className="mt-auto">
-              <button className="w-full bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 text-lg font-bold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg">
-                Add to Cart
-              </button>
+              <AddToCartButton
+                product={product}
+                className="w-full bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 text-lg font-bold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+              />
             </div>
           </div>
         </div>
