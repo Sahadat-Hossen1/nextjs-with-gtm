@@ -1,8 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
+import { AddToCartButton } from "@/components/AddToCartButton";
+// import { AddToCartButton } from "@/components/AddToCartButton";
+
+export const metadata = {
+  title: "Products | Fashion Store",
+  description: "Browse all of our available fashion products.",
+};
 
 export default function ProductsPage() {
+
   return (
     <main className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-6xl mx-auto px-4">
@@ -44,9 +52,10 @@ export default function ProductsPage() {
                   <span className="text-2xl font-bold text-gray-900">
                     ৳{product.price}
                   </span>
-                  <button className="bg-black text-white px-5 py-2.5 rounded-lg hover:bg-gray-800 font-semibold transition-colors shadow-sm active:scale-95">
-                    Add to Cart
-                  </button>
+                  <AddToCartButton
+                    product={product}
+                    className="bg-black text-white px-5 py-2.5 rounded-lg hover:bg-gray-800 font-semibold transition-colors shadow-sm active:scale-95"
+                  />
                 </div>
               </div>
             </div>

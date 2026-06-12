@@ -5,6 +5,11 @@ import { products } from "@/data/products";
 import { useEffect } from "react";
 import { sendGAEvent } from "@next/third-parties/google";
 
+export const metadata = {
+  title: "Home | Fashion Store",
+  description: "Discover the latest fashion trends on our home page.",
+};
+
 export default function HomePage() {
    useEffect(() => {
     sendGAEvent("event", "demo-event", { value: "demo" });

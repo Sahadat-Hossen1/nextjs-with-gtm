@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "About Us | Fashion Store",
+  description: "Learn more about our fashion e-commerce store and our mission.",
+};
+
 export default function AboutPage() {
   return (
     <main className="max-w-5xl mx-auto px-6 py-12">
