@@ -9,6 +9,11 @@ export const metadata = {
   description: "Discover the latest fashion trends on our home page.",
 };
 
+export const metadata = {
+  title: "Home | Fashion Store",
+  description: "Discover the latest fashion trends on our home page.",
+};
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-gray-100">
