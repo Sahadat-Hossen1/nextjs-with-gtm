@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
-import Nav from "@/components/nav";
+// import Nav from "@/components/nav";
 import { getProductById } from "@/data/products";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { AddToCartButton } from "@/components/AddToCartButton";
+
+// export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+//   const { id } = await params;
+//   const product = getProductById(id);
+
+//   return {
+//     title: product ? `${product.name} | Fashion Store` : "Product | Fashion Store",
+//     description: product?.description ?? "View the details of this product.",
+//   };
+// }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
@@ -16,21 +26,12 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const product = getProductById(params.id);
-
-  return {
-    title: product ? `${product.name} | Fashion Store` : "Product | Fashion Store",
-    description: product?.description ?? "View the details of this product.",
-  };
-}
-
 export default async function ProductPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
   const product = getProductById(id);
 
   if (!product) {

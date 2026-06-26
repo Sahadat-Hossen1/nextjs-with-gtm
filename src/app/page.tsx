@@ -4,10 +4,10 @@ import { products } from "@/data/products";
 import { HomeTracker } from "./HomeTracker";
 import { AddToCartButton } from "@/components/AddToCartButton";
 
-export const metadata = {
-  title: "Home | Fashion Store",
-  description: "Discover the latest fashion trends on our home page.",
-};
+// export const metadata = {
+//   title: "Home | Fashion Store",
+//   description: "Discover the latest fashion trends on our home page.",
+// };
 
 export const metadata = {
   title: "Home | Fashion Store",

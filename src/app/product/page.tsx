@@ -2,10 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { products } from "@/data/products";
 import { AddToCartButton } from "@/components/AddToCartButton";
-<<<<<<< HEAD
-=======
-// import { AddToCartButton } from "@/components/AddToCartButton";
->>>>>>> 161ec365b7b4056a3dd12d38408ed4f009e392ad
 
 export const metadata = {
   title: "Products | Fashion Store",
