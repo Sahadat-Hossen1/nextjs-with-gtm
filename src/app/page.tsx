@@ -17,7 +17,7 @@ export default function HomePage() {
       <section className="bg-black text-white py-20 text-center">
         <h1 className="text-5xl font-bold">Fashion Store</h1>
         <p className="mt-4 text-lg">
-          Discover the latest fashion trends
+          Discover the latest fashion trendsi
         </p>
       </section>
 
