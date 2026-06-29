@@ -17,7 +17,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-gray-100">
-      <HomeTracker />
+      {/* <HomeTracker /> */}
       {/* Hero Section */}
       <section className="bg-black text-white py-20 text-center">
         <h1 className="text-5xl font-bold">Fashion Store</h1>

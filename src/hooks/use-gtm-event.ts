@@ -15,6 +15,7 @@ export function useGTMEvent() {
                 name: "sahadat",
                 phone: '0123456789',
                 email: "sahadat.hossen1435@gmail.com",
+                price:4000,
               }),
             },
           ],

@@ -38,7 +38,7 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
       </body>
-      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+      {/* {gaId ? <GoogleAnalytics gaId={gaId} /> : null} */}
     </html>
   );
 }
